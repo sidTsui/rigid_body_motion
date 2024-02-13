@@ -37,7 +37,7 @@ def rotationy(b): #beta
 	return roty
 	
 def rotationz(g): #gamma
-	rotz = np.array([[math.cos(c),  -math.sin(g), 0.0, 0.0],
+	rotz = np.array([[math.cos(g),  -math.sin(g), 0.0, 0.0],
 				    [math.sin(g), math.cos(g), 0.0, 0.0],
 					[0.0, 0.0, 1.0, 0.0],
 					[0.0,  0.0, 0.0, 1.0]])
