@@ -10,4 +10,3 @@ if __name__ == "__main__":
 	z = rbm.rot_z(halfpi)
 	firstRot = np.matmul(x, y)#matrix multiplication from numpy
 	secRot = np.matmul(firstRot, z)
-
