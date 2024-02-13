@@ -23,7 +23,7 @@ def H_2():
 
 def H_3():
 	#fixed frame
-	translationy = p2_sol.transformy(1.5)
+	translationy = p2_sol.transformy(1.5)#inverse values for fixed frame
 	translationz = p2_sol.transformz(-0.5)
 	translationx = p2_sol.transformx(-2.5)
 
@@ -32,7 +32,7 @@ def H_3():
 	
 def H_4():
 	#fixed frame
-	translationy = p2_sol.transformy(1.5)
+	translationy = p2_sol.transformy(1.5)#inverse values for fixed frame
 	translationx = p2_sol.transformx(-2.5)
 	translationz = p2_sol.transformz(-0.5)
 	
@@ -48,8 +48,8 @@ def H_5():
 	result = rotationx @ translationx @ translationz @ rotationz
 	return result
 	
-print(H_1())
-print("")
+print(H_1()) #calling methods and printint results
+print("")#organiztion purposes
 print(H_2())
 print("")
 print(H_3())
