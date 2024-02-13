@@ -1,16 +1,44 @@
-# import the rigid body motion module
-import rbm
 import math
 import numpy as np
+#used "Basic Homogenous Transformation" side 46 formulas
+def transformx(a): 
+	transx = np.array([[1.0,  0.0, 0.0, a],
+				    [0.0, 1.0, 0.0, 0.0],
+				    [0.0, 0.0, 1.0, 0.0],
+					[0.0, 0.0, 0.0, 1.0]])
+	return transx
 
-if __name__ == '__main__':
-	# define a test value 
-	theta = math.pi/4 
-	print('rot_2d function:', rbm.rot_2d.__doc__)
-	print('a %.2f radian rotation in 2D is shown by'%theta)
-	# update the output format
-	np.set_printoptions(precision = 2, suppress = True)
-	print(rbm.rot_2d(theta))
-	print(np.linalg.det(rbm.rot_2d(theta)))
-	print(rbm.rot_x(theta))
+def transformy(b):
+	transy = np.array([[1.0,  0.0, 0.0, 0.0],
+				    [0.0, 1.0, 0.0, b],
+				    [0.0, 0.0, 1.0, 0.0],
+					[0.0, 0.0, 0.0, 1.0]])
+	return transy
+
+def transformz(c):
+	transz = np.array([[1.0,  0.0, 0.0, 0.0],
+				    [0.0, 1.0, 0.0, 0.0],
+				    [0.0, 0.0, 1.0, c],
+					[0.0, 0.0, 0.0, 1.0]])
+	return transz
+
+def rotationx(a):
+	rotx = np.array([[1.0,  0.0, 0.0, 0.0],
+				    [0.0, math.cos(a), -math.sin(a), 0.0],
+					[0.0, math.sin(a), math.cos(a), 0.0],
+					[0.0,  0.0, 0.0, 1.0]])
+	return rotx
 	
+def rotationy(b):
+	roty = np.array([[math.cos(b),  0.0, math.sin(b), 0.0],
+				    [0.0, 1.0, 0.0, 0.0],
+					[-math.sin(b), 0.0, math.cos(b), 0.0],
+					[0.0,  0.0, 0.0, 1.0]])
+	return roty
+	
+def rotationz(c):
+	rotz = np.array([[math.cos(c),  -math.sin(c), 0.0, 0.0],
+				    [math.sin(c), math.cos(c), 0.0, 0.0],
+					[0.0, 0.0, 1.0, 0.0],
+					[0.0,  0.0, 0.0, 1.0]])
+	return rotz
